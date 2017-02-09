@@ -1,0 +1,10 @@
+<?xml version="1.0"?> 
+<PaginationStrategy>
+    
+    <RecordDisplay recordsPerPage="10" initialPagenumbers="3" pageNumbersPerSet="5"/>
+    
+    <Strategy name="TaskSearch" className="com.firstam.interactive.faws.portal.pagination.helper.TasksPaginationStrategy">
+    	<RecordDisplay recordsPerPage="10" initialPagenumbers="3" pageNumbersPerSet="5"/> 
+    </Strategy>
+    
+</PaginationStrategy> 

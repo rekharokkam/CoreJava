@@ -1,0 +1,1 @@
+package com.zapapp.general;public class NestedClassExtender extends NestedClassTest{	public void fetchSuperClassVaraible ()	{System.out.println ("THE SUPER CLASS VARIABLE 1111111 = " + z);			}		public class InnerClassExtender extends InnerClass	{		public void test ()		{			System.out.println ("SUPER SUPER VARIABLE = " + z);					}	}}

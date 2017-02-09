@@ -1,0 +1,1 @@
+package com.zapapp.general;public class MethodInnerClass {	private int z = 100;	public void checkMethodInnerClasses (final int y)	{		final int x = 30;		class MethodInnerInnerClass		{			public void printMsg ()			{System.out.println (y);											}		}				new MethodInnerInnerClass ().printMsg();	}}

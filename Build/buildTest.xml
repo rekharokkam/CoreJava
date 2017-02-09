@@ -1,0 +1,117 @@
+<project name="Test" default="ONEFILE" basedir=".">
+	
+	
+	<property file="build.properties"/>
+	
+	
+	<target name="setPros" description="This target sets the required properties">
+		<property name="outputDirectory" value="../Test"/>	
+	</target>
+	
+	<target name="init" depends="setPros" description="This sets all the required properties">
+		
+		<tstamp/>
+		
+		<property name="class" value="${outputDirectory}/classes"/>
+		<property name="libs" value="${outputDirectory}/libs"/>
+		<property name="source_jar" value="${libs}/source.jar"/>
+		<property name="classes_jar" value="${libs}/classes.jar"/>
+		
+	</target>
+	
+	<target name="clean" depends="init" description="Deletes all the build directories">
+		<delete file="${libs}/${source_jar}"/>
+		<delete file="${libs}/${classes_jar}"/>
+		<delete dir="${outputDirectory}"/>
+	</target>
+	
+	<target name="prepare" depends="init" description="This target creates all the required directories if they don't exist ">
+		<mkdir dir="${outputDirectory}"/>
+		<mkdir dir="${classes}"/>
+		<mkdir dir="${libs}"/>
+	</target>
+	
+	<target name="compile" depends="prepare" description="This target complies all the source files">
+		<javac srcdir="../src" destdir="${classes}"/>
+	</target>
+	
+	<target name="jarAll" depends="compile" description="This target jars all the class and the source files into two seperate jars">
+		<jar jarfile="${source_jar}" basedir="../src"/>
+		<jar jarfile="${classes_jar}" basedir="../src"/>
+	</target>
+	
+	<target name="ALL" depends="clean,jarAll" description="This target performs all the actions"/>
+	
+	<target name="ONEFILE" depends="init" description="This target compiles and runs only one java file">
+		
+		<javac srcdir="../src" destdir="${class}" includes="${compilejavafile}" debug="on" fork="true"/>		
+		<!--
+		<javac srcdir="../src" destdir="${class}" includes="${compilejavafile}" debug="on" fork="true" excludes="${donotCompile}"/>		
+		-->
+		
+		<!-- This is required only for the exception handling framework
+		<copy todir="${outputDirectory}/config">
+			<fileset dir="../${config}"/>
+		</copy>
+		 -->
+		
+		<!-- This command updates the existing jar file with the changed class file -->
+		<!--jar jarfile="${classes_jar}" basedir="${classes}" update="yes"/-->
+		
+		<!--
+		<java classname="${runjavafile}" fork="true" dir="${class}" classpath="${class}"/>
+		-->
+		<java classname="${runjavafile}" fork="true" dir="${class}" classpath="${class}">
+			<classpath>
+				
+				<fileset dir="${libs}">
+        			<include name="**/*.jar"/>
+      			</fileset>
+
+			</classpath>
+		
+		</java>
+			
+		
+			<!--	
+			 Both of these are used to set the System properties>
+			<sysproperty key="junk" value="Its me the best"/>
+			
+			
+			<jvmarg value="-Djava.security.auth.login.config==login.config"/>
+			<jvmarg value="-Djava.security.policy==jaas.policy JAASExample"/>
+			
+			
+			
+			The argument passed to the java file eg. args[0]
+			<arg value="${argument}"/>
+			-->
+
+		<!--
+		<exec executable="D:/Testing/JavaTesting/src/jaasPropertySetter.bat"/>
+		-->
+		
+	</target>
+	
+	
+	<target name="PAGINATION" description="This is for pagination testing alone. May not be useful later">
+		
+	
+		<!-- It is assumed that the folder hierarchy already exists -->	
+		
+		<!-- Compile the source files to web folder D:/Pagination/WEB-INF/classes -->
+		<javac srcdir="../src" destdir="${webFolder}/${classes}" includes="${compilejavafile}" debug="on" fork="true" excludes="${donotCompile}"/>
+		
+		<!-- copy jsps to jsp folder -->
+		<copy todir="${webFolder}/${jsp}">
+			<fileset dir="${sourceWeb}" includes="**/*.jsp"/>
+		</copy>
+		
+		<!-- copy htmls to html folder -->
+		<copy todir="${webFolder}/${html}">
+			<fileset dir="${sourceWeb}" includes="**/*.html"/>
+		</copy>
+		
+	</target>
+	
+</project>

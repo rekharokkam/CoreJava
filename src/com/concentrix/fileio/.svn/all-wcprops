@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/encover/!svn/ver/10437/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio
+END
+Metadata.java
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/encover/!svn/ver/10437/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio/Metadata.java
+END
+DiskFileReadWrite.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/encover/!svn/ver/10439/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio/DiskFileReadWrite.java
+END
+FileFacade.java
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/encover/!svn/ver/10435/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio/FileFacade.java
+END
+FileReadWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/encover/!svn/ver/10429/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio/FileReadWriter.java
+END
+FileWriteFailedException.java
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/encover/!svn/ver/10436/branches/6.6.1_Synnex/antares/src/antares/java/com/cnx/renewsolv/fileio/FileWriteFailedException.java
+END

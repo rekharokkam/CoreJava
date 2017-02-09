@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pers:person xmlns:pers="http://firstam.com/pers">
+	<pers:firstname>John</pers:firstname>
+	<pers:lastname>Doe</pers:lastname>
+	<pers:title>Sir</pers:title>
+	<pers:resume>
+		<html xmlns="http://www.w3.org/1999/xhtml">
+			<head>
+				<title>Resume of John Does</title>
+			</head>
+			<body>
+				<h1>John's a great man</h1>
+			</body>
+		</html>
+	</pers:resume>				
+</pers:person>

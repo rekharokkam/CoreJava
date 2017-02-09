@@ -1,0 +1,44 @@
+<Criteria>
+	<Criterion name="person" className="">
+		<Field name="" mappingField="PERSON.PERSON_ID" dataType="integer" fetch="true"
+			fetchName = "PERSON_ID" displayName="Person Id"/>
+		<Field name="" mappingField="PERSON.PERSON_NAME" dataType="varchar" fetch="true"
+			fetchName = "PERSON_NAME" displayName="PERSON NAME"/>
+		<Field name="" mappingField="PERSON.PERSON_ALIAS_NAME" dataType="varchar" fetch="true"
+			fetchName = "PERSON_ALIAS_NAME" displayName="Pet Name"/>
+		<Field name="" mappingField="PERSON.PERSON_ADDRESS" dataType="varchar" fetch="true"
+			fetchName = "PERSON_ADDRESS" displayName="PERSON ADDRESS"/>
+		<Field name="" mappingField="DEPARTMENT.DEPARTMENT_ID" dataType="integer" fetch="false"
+			fetchName = "" displayName=""/>
+		<Field name="" mappingField="DEPARTMENT.DEPARTMENT_NAME" dataType="varchar" fetch="true"
+			fetchName = "DEPARTMENT_NAME" displayName="DEPARTMENT"/>
+		<Field name="" mappingField="person.dob" dataType="datetime" fetch="true"
+			fetchName = "dob" displayName="person date of birth" range="true" rangeStart="dob_start" rangeEnd="dob_end"/>
+			
+	</Criterion>
+	
+	<Relation-Mapping criterionName="person">
+		<!--
+		<Relation type="OR" allField="true"/>
+		-->
+		<Relation type="AND" allField="true"/>
+		<Relation type="OR" field="PERSON.PERSON_ID , PERSON.PERSON_NAME"/>
+		
+	</Relation-Mapping>
+	
+	<Table-mappings>
+		<Table name = "PERSON">
+			<Column name="role_id" foreign="role_department.role_id"/>
+			<Column name="city_id" foreign="state_city.city_id"/>
+		</Table>
+		<Table name="role_department">
+			<Column name="role_id" foreign="roles.role_id"/>
+			<Column name="department_id" foreign="department.department_id"/>
+		</Table>
+		<Table name="state_city">
+			<Column name="city_id" foreign="city.city_id"/>
+			<Column name="state_id" foreign="state.state_id"/>
+		</Table>
+	</Table-mappings>
+	
+</Criteria>

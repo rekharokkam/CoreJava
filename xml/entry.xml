@@ -1,0 +1,201 @@
+<root>
+
+	<!--User Management Functions -->	
+	<!--START USER FUNCTIONS -->
+
+	<Entry functionId="UserManagement" description="this is the parent of all the user Management files" parentDN="ou=Functions,dc=firstam,dc=com"  module="true"/>
+		
+	<Entry active="true" functionId="AddUser" bitPosition="1" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Add User" resource-restricted="true"/>
+
+	<Entry active="true" functionId="ActivateDeactivateUser" bitPosition="2" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Activate and Deactivate User" bitParent="AddUser" resource-restricted="true"/>
+
+	<Entry active="true" functionId="UpdateUser" bitPosition="4" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Edit User" bitParent="ActivateDeactivateUser" resource-restricted="true"/>
+
+	
+	<Entry active="true" functionId="ReadUser" bitPosition="5" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Read User" bitParent="UpdateUser" resource-restricted="true"/>	
+
+	
+	<Entry active="true" functionId="SearchUsers" bitPosition="24" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Search User" resource-restricted="false"/>	
+	
+	<Entry active="true" functionId="GetUserList " bitPosition="21" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="Search User" resource-restricted="false"/>	
+
+	<Entry active="true" functionId="ManageUserGroupAssociation" bitPosition="22" parentDN="cn=UserManagement,ou=functions,dc=firstam,dc=com" description="ManageUserGroupAssociation" resource-restricted="false"/>	
+
+	<!--END USER FUNCTIONS -->
+	
+	<!--Group Management Functions -->	
+	<!--START GROUP FUNCTIONS -->
+
+	<Entry functionId="GroupManagement" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com"  module="true"/>
+		
+		
+	<Entry active="true" functionId="AddGroup" bitPosition="61" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Add Group" resource-restricted="true"/>
+	
+	<Entry active="true" functionId="DeleteGroup" bitPosition="63" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Delete Group" bitParent="AddGroup" resource-restricted="true"/>
+	
+	
+	<Entry active="true" functionId="UpdateGroup" bitPosition="64" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Edit User" bitParent="DeleteGroup" resource-restricted="true"/>
+	
+	<Entry active="true" functionId="ReadGroup" bitPosition="65" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Read User" bitParent="UpdateGroup" resource-restricted="true"/>	
+	
+
+	<Entry active="true" functionId="SearchGroup" bitPosition="66" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="SearchGroup"  resource-restricted="true"/>	
+	
+	<Entry active="true" functionId="ManageGroupAssociation" bitPosition="81" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="ManageGroupAssociation" resource-restricted="false"/>	
+	
+	
+	
+	<Entry active="true" functionId="AddMasterGroup" bitPosition="51" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Add Master Group"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="DeleteMasterGroup" bitPosition="33" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Delete Master Group" bitParent="AddMasterGroup" resource-restricted="true"/>
+	
+	
+	<Entry active="true" functionId="UpdateMasterGroup" bitPosition="34" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Edit Master Group" bitParent="DeleteMasterGroup" resource-restricted="true"/>
+	
+	
+		
+	<Entry active="true" functionId="ReadMasterGroup" bitPosition="35" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Read Master Group" bitParent="UpdateMasterGroup" resource-restricted="true"/>	
+	
+
+	<Entry active="true" functionId="SearchMasterGroup" bitPosition="36" parentDN="cn=GroupManagement,ou=functions,dc=firstam,dc=com" description="Search Master Group" resource-restricted="true"/>	
+
+	
+
+	<!--END GROUP FUNCTIONS -->
+
+	<!--Domain Management Functions -->
+
+	<!--START DOMAIN FUNCTIONS -->
+
+	<Entry functionId="DomainManagement" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com"  module="true"/>
+			
+	<Entry active="true" functionId="AddDomain" bitPosition="111" parentDN="cn=DomainManagement,ou=Functions,dc=firstam,dc=com" description="Add Domain"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="ActivateDeactivateDomain" bitPosition="92" parentDN="cn=DomainManagement,ou=Functions,dc=firstam,dc=com" description="Add Domain" bitParent="AddDomain" resource-restricted="true"/>
+	
+	<Entry active="true" functionId="UpdateDomain" bitPosition="94" parentDN="cn=DomainManagement,ou=Functions,dc=firstam,dc=com" description="ActivateDeactivateDomain" bitParent="ActivateDeactivateDomain" resource-restricted="true"/>
+
+	<Entry active="true" functionId="ReadDomain" bitPosition="95" parentDN="cn=DomainManagement,ou=Functions,dc=firstam,dc=com" description="UpdateDomain" bitParent="UpdateDomain" resource-restricted="true"/>
+	
+	<Entry active="true" functionId="SearchDomain" bitPosition="112" parentDN="cn=DomainManagement,ou=Functions,dc=firstam,dc=com" description="UpdateDomain" resource-restricted="false"/>
+	
+	<!--END DOMAIN FUNCTIONS -->
+
+
+	<!--Function Management Functions -->
+
+	<!--START Function FUNCTIONS -->
+
+	<Entry functionId="FunctionManagement" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com"  module="true"/>
+	
+	<Entry active="true" functionId="ReadFunction" bitPosition="125" parentDN="cn=FunctionManagement,ou=Functions,dc=firstam,dc=com" description="ReadFunction" resource-restricted="true"/>
+	
+	<Entry active="true" functionId="SearchFunction" bitPosition="141" parentDN="cn=FunctionManagement,ou=Functions,dc=firstam,dc=com" description="SearchFunction" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="EnableDisablePermission" bitPosition="142" parentDN="cn=FunctionManagement,ou=Functions,dc=firstam,dc=com" description="EnableDisablePermission" resource-restricted="false"/>
+
+	<!--END FUNCTION FUNCTIONS -->
+
+
+
+	<!--Order Management Functions -->
+	<!--START Order Mgmt FUNCTIONS -->
+
+	<Entry functionId="OrderManagement" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	
+	<Entry active="true" functionId="SubmitOrder" bitPosition="165" parentDN="cn=OrderManagement,ou=Functions,dc=firstam,dc=com" description="Submit Order"  resource-restricted="false"/>
+
+	<Entry active="true" functionId="ExportNotes" bitPosition="163" parentDN="cn=OrderManagement,ou=Functions,dc=firstam,dc=com" description="Export Notes"  resource-restricted="false"/>
+
+	<Entry active="true" functionId="SearchOrder" bitPosition="164" parentDN="cn=OrderManagement,ou=Functions,dc=firstam,dc=com" description="SearchOrder" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="AddNotes" bitPosition="161" parentDN="cn=OrderManagement,ou=Functions,dc=firstam,dc=com" description="AddNotes" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="ChangeStatus" bitPosition="162" parentDN="cn=OrderManagement,ou=Functions,dc=firstam,dc=com" description="ChangeStatus" resource-restricted="false"/>
+	
+	<!--END ORDER FUNCTIONS -->	
+
+
+	<!--Entitlement Management Functions -->
+	<!--START Entitlement Mgmt FUNCTIONS -->
+
+	<Entry functionId="Entitlement Management" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	
+	<Entry active="true" functionId="CheckEntitlement" bitPosition="181" parentDN="cn=Entitlement Management,ou=Functions,dc=firstam,dc=com" description="CheckEntitlement"  resource-restricted="false"/>
+
+	<Entry active="true" functionId="CreatePartnership" bitPosition="182" parentDN="cn=Entitlement Management,ou=Functions,dc=firstam,dc=com" description="Entitlement"  resource-restricted="false"/>
+
+	<Entry active="true" functionId="CreateEntitlement" bitPosition="183" parentDN="cn=Entitlement Management,ou=Functions,dc=firstam,dc=com" description="Create Entitlement"  resource-restricted="false"/>
+	
+	<!--END Entitlement Mgmt FUNCTIONS -->
+
+
+<!--PDS OFFICE Management Functions -->
+	<!--START PDS Office Mgmt FUNCTIONS -->
+
+	<Entry functionId="Office Management" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	
+	<Entry active="true" functionId="createOffice" bitPosition="201" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="create Office"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="getOfficeFullDetail" bitPosition="202" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="create Office" resource-restricted="false"/>
+
+	<Entry active="true" functionId="searchOffice" bitPosition="203" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="Search Office" resource-restricted="false"/>
+
+	<Entry active="true" functionId="addUpdateContact" bitPosition="204" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="addUpdateContact" resource-restricted="false"/>
+
+	<Entry active="true" functionId="getListContacts" bitPosition="205" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="getListContacts" resource-restricted="false"/>
+
+	<Entry active="true" functionId="createOrganization" bitPosition="206" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="getListContacts" resource-restricted="false"/>
+		
+	<Entry active="true" functionId="getOrgStructure" bitPosition="207" parentDN="cn=Office Management,ou=Functions,dc=firstam,dc=com" description="getOrgStructure" resource-restricted="false"/>
+		
+
+	<!-- END PDS Office Mgmt FUNCTIONS -->
+
+	<!--PDS PERSON Management Functions -->
+	<!--START PDS Person Mgmt FUNCTIONS -->
+	
+	<Entry functionId="Person Management" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	
+	<Entry active="true" functionId="getPersonFullDetail" bitPosition="231" parentDN="cn=Person Management,ou=Functions,dc=firstam,dc=com" description="getPersonFullDetail" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="searchPerson" bitPosition="232" parentDN="cn=Person Management,ou=Functions,dc=firstam,dc=com" description="searchPerson" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="createPerson" bitPosition="233" parentDN="cn=Person Management,ou=Functions,dc=firstam,dc=com" description="searchPerson" resource-restricted="false"/>
+	
+	<!-- PDS Person Mgmt FUNCTIONS -->	
+
+	<!--PDS General Management Functions -->
+	<!--START PDS General Mgmt FUNCTIONS -->
+
+	<Entry functionId="PDS Management" description="this is the parent of all the Group Management Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	
+	<Entry active="true" functionId="updateBasicInfo" bitPosition="261" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="getSummary" bitPosition="262" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="addUpdateElectronicAddress" bitPosition="263" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="addUpdatePhysicalAddress" bitPosition="264" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson" resource-restricted="false"/>
+	
+	<Entry active="true" functionId="setActiveStatus" bitPosition="265" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="changeAssociation" bitPosition="266" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="getAssociation" bitPosition="267" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	
+	<Entry active="true" functionId="getFullDetail" bitPosition="268" parentDN="cn=PDS Management,ou=Functions,dc=firstam,dc=com" description="searchPerson"  resource-restricted="false"/>
+	<!--END PDS General Mgmt FUNCTIONS -->
+	
+	
+	<!-- Work Flow Management Functions-->
+	<Entry functionId="WorkflowManagement" description="this is the parent of all the Workflow Functions" parentDN="ou=Functions,dc=firstam,dc=com" module="true"/>
+	<Entry active="true" functionId="ManageMasterProcessModel" bitPosition="281" parentDN="cn=WorkflowManagement,ou=Functions,dc=firstam,dc=com" description="Manage Master Process Model" resource-restricted="false"/>
+	<!-- Work Flow Management -->
+	
+	
+</root>
+	
+	
+
+	

@@ -1,0 +1,106 @@
+package com.cnx.renewsolv.fileio;
+
+import java.beans.DesignMode;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import org.apache.log4j.Logger;
+
+public class DiskFileReadWrite implements FileReadWriter
+{
+	private static final Logger logger = Logger.getLogger(DiskFileReadWrite.class);
+	
+	public boolean verifyDestinationLocation(String toBeVerifiedDiskPath) throws FileWriteFailedException
+	{
+		logger.debug("Destination location to be verified in verifyDestinationLocation() of DiskFileReadWrite : " + toBeVerifiedDiskPath); 
+		try
+		{
+			File file = new File (toBeVerifiedDiskPath);			
+			boolean isFolderExists = file.exists() && file.isDirectory() ;
+			logger.debug("Does the disk file location exists and also a directory : " + isFolderExists);
+			
+			if (!isFolderExists)
+			{
+				file.mkdir();				
+			}
+			return true;
+		}
+		catch (Exception exception)
+		{
+			logger.error("Exception occured while Verifying the Destination File path in verifyDestinationLocation", exception);
+			throw new FileWriteFailedException("", exception.getMessage(), exception);
+		}
+	}
+
+	public void writeFile(String destinationFileName, String destinationFilePath, InputStream inputStream)
+			throws FileWriteFailedException
+	{		
+		OutputStream outputStream = null;;
+		
+		try
+		{
+			String destinationFileWithFullPath = destinationFilePath + File.separator  + destinationFileName;
+			logger.debug("Disk Full path for the file upload : " + destinationFileWithFullPath);
+			if (verifyDestinationLocation(destinationFilePath))
+			{
+				logger.debug("Folder location is valid, so writing the file uploaded by user");
+				outputStream = new FileOutputStream(destinationFileWithFullPath);
+				BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
+				BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
+				int read = 0;
+				byte[] inputStreamBytesBuffer = new byte[1024];
+				
+				while ( (read = bufferedInputStream.read(inputStreamBytesBuffer)) > 0)
+				{
+					bufferedOutputStream.write(inputStreamBytesBuffer, 0, read);
+				}				
+			}
+		}
+		catch (Exception exception)
+		{
+			logger.error("Exception occured while writing user uploaded file to the Destination File path", exception);
+			throw new FileWriteFailedException("", exception.getMessage(), exception);
+		}
+		finally
+		{
+			try
+			{
+				if (null != inputStream)
+				{
+					inputStream.close();
+				}
+				if (null != outputStream)
+				{
+					outputStream.close();
+				}
+			}
+			catch (IOException ioException)
+			{
+				logger.error("Exception occured while closing input or output stream while writing user uploaded file", ioException);			
+			}
+		}
+	}
+	
+	public static void main(String[] args)
+	{
+		try
+		{
+			FileInputStream fileInputStream = new FileInputStream(new File ("C:/Rekha/from/WESTERN_BLUE_Non-SYNNEX_HP_Care_Packs_upload_Template.xlsx"));
+			
+			new DiskFileReadWrite().writeFile("WESTERN_BLUE_Non-SYNNEX_HP_Care_Packs_upload_Template3.xlsx",
+					"C:/Rekha/to/Hp Fixed Care Pack", fileInputStream);
+			
+		}
+		catch (Exception exception)
+		{
+exception.printStackTrace(System.err);			
+		}
+		
+	}
+}

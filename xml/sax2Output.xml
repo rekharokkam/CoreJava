@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<soap:Envelope xmlns:mh="http://www.Monson-Haefel.com/jwsbook/BookQuote" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3c.org/2001/XMLSchema" xmlns:xsi="http://www.w3c.org/2001/XMLSchema-instance">
+	This is the soap envelope text start element
+	<soap:Body>
+		<mh:getBookPrice>
+			<isbn xsi:type="xsd:string">0321146182</isbn>
+		</mh:getBookPrice>
+	</soap:Body>
+	This is the soap envelope text end element
+</soap:Envelope>

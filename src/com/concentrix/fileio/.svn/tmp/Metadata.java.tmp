@@ -1,0 +1,88 @@
+package com.cnx.renewsolv.fileio;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import smart.business.user.UserEO;
+
+public class Metadata {
+	private List<String> header = new ArrayList<String>();
+	private List<String> data 	= new ArrayList<String>();
+	private String delim		= "#";
+	private String writeType;
+	private String uploadType;
+	private String path;
+	private UserEO userEO;
+
+	public Metadata() {
+		super();
+	}
+	
+	public void setMetadata(String header, String data){
+		this.header.add(header);
+		this.data.add(data);
+	}
+
+	public List<String> getHeaderList() {
+		return header;
+	}
+
+	public List<String> getDataList() {
+		return data;
+	}
+	
+	public String[] createHeader(){
+		
+		return createIt(this.header);
+	}
+	
+	public String[] createData(){
+		return createIt(this.data);
+	}
+	
+	public String[] createIt(List<String> l){
+		StringBuffer s = new StringBuffer();
+		Iterator<String> iterator = l.iterator();
+		while (iterator.hasNext()) {
+			if (s.length() != 0)
+				s.append(delim);	
+			s.append(iterator.next());
+		}
+		return s.toString().split(delim);
+	}
+
+	public String getWriteLocation() {
+		return writeType;
+	}
+
+	public void setWriteLocation(String writeLocation) {
+		this.writeType = writeLocation;
+	}
+
+	public String getFileType() {
+		return uploadType;
+	}
+
+	public void setFileType(String fileType) {
+		this.uploadType = fileType;
+	}
+
+	public String getPath() {
+		return path;
+	}
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+	public UserEO getUser() {
+		return userEO;
+	}
+
+	public void setUser(UserEO user) {
+		this.userEO = user;
+	}
+	
+	
+}

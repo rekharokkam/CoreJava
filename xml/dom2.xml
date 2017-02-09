@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<addr:address type="Billing" xmlns:addr="http://www.Monson-?Haefel.com">
+	<name xyc="junky">Amazon.com<surname>Junks</surname><!-- JUNK COMMENT--></name>
+	<street zwx="hi">1850 Mercer Driver</street>
+	<city>Macon</city>
+	<state>KY</state>
+	<zip>40511</zip>
+</addr:address>

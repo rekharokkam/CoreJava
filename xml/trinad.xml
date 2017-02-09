@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Categories>
+	<!--  Main Category Java -->
+	<Category name="Java" desc="Programming Language" parentCatCode="0" categoryCode="Cat01"/>
+	
+	<!-- Java's Sub Category -->
+		<Category name="EE" desc="Enterprise Edition" parentCatCode="Cat01" categoryCode="SubCat01"/>
+		<Category name="SE" desc="Standard Edition" parentCatCode="Cat01" categoryCode="SubCat02"/>
+		<Category name="ME" desc="Mobile Edition" parentCatCode="Cat01" categoryCode="SubCat03"/>
+	
+	<!-- EE Sub Categoris -->
+			<Category name="Servlet" desc="Servlet" parentCatCode="SubCat01" categoryCode="SubSubCat01"/>
+			<Category name="JSP" desc="JSP" parentCatCode="SubCat01" categoryCode="SubSubCat02"/>
+			
+	<!-- Servlets version -->		
+				<Category name="Servlet 2.2" desc="Version 2.2" parentCatCode="SubCat01" categoryCode="SubSubCat01"/>
+				<Category name="Servlet 2.3" desc="Version 2.3" parentCatCode="SubCat01" categoryCode="SubSubCat01"/>
+				
+</Categories>

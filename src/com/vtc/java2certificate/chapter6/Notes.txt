@@ -1,0 +1,9 @@
+Overloading
+-----------
+Considers Name, Argument List on the method negelects return type and Exceptions thrown
+
+OverRiding
+----------
+Considers Name, Argument List and return type. Name and Argument List should be same as the parent method.
+Doesnt consider the exception thrown by the method.
+Overriding method access specifier should be more public than the parent access specifier.

@@ -1,0 +1,5 @@
+Time Zone will be store in the following formats 
+"PST" (Pacific Standard Time,
+"MST" (Mountain Standard Time), 
+"CST" (Central Standard Time) - central america, 
+"EST" (Eastern Standard Time)"
