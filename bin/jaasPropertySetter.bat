@@ -1,2 +1,0 @@
-@set classpath=%classpath%;D:\Testing\JavaTesting\Test\classes
-@java -Djava.security.manager -Djava.security.auth.login.config==login.config -Djava.security.policy==jaas.policy com.zapapp.jaas.authentication.JAASTesting
